@@ -1,8 +1,7 @@
-# Klyppr Desktop
+# Klyipf Desktop
 
-> **📋 Latest Updates:** Fixed audio sync issue and updated UI
+<img width="1248" height="787" alt="image" src="https://github.com/user-attachments/assets/1a1a1ab7-d371-4cd0-8fd4-a2e375dd9803" />
 
-This is the desktop version of [Klyppr](https://github.com/muzafferkadir/klyppr), a tool for editing video silence.
 
 ## Features
 
@@ -12,17 +11,13 @@ This is the desktop version of [Klyppr](https://github.com/muzafferkadir/klyppr)
 - Padding duration control for smooth transitions
 - User-friendly desktop interface
 - Supports multiple video formats (mp4, avi, mov, mkv)
+- Normalize audio LUFS for youtube standard
 
 ## Installation
 
-1. Download the latest release for your operating system
-
-[MacOS (arm64)](https://github.com/muzafferkadir/klyppr-desktop/releases/download/v0.1.0/Klyppr-1.1.0-arm64.dmg)
-
-[Windows (x64)](https://github.com/muzafferkadir/klyppr-desktop/releases/download/v0.1.0/Klyppr.Setup.1.1.0.exe)
-
-3. Install the application
-4. Launch Klyppr Desktop
+1. clone repo
+3. Install the application and Download the Ffmpeg latest release for your operating system
+2. Launch Desktop app
 
 ## Development Setup
 
@@ -83,10 +78,6 @@ This is an Electron-based application using:
 - Electron
 - FFmpeg for video processing
 - Node.js
-
-## Related Projects
-
-- [Klyppr Web Version](https://github.com/muzafferkadir/klyppr) - The web-based version of Klyppr
 
 ## License
 
