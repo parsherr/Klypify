@@ -10,6 +10,17 @@
     <div class="app-wrapper">
         <div class="container">
             <header class="header">
+                <div class="header-top">
+                    <div class="header-left">
+                        <button class="github-link" onclick="openGitHub()" title="View on GitHub">
+                            <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                            </svg>
+                            <span class="repo-name">parsherr/Klypify</span>
+                        </button>
+                        <span class="version-badge">v1.4</span>
+                    </div>
+                </div>
                 <div class="logo-container">
                     <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
@@ -20,82 +31,234 @@
             </header>
 
             <main class="main-content">
-                <section class="file-selection">
-                    <div class="form-group">
-                        <label class="form-label">
-                            <svg class="label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
-                            </svg>
-                            Input Video
-                        </label>
-                        <div class="input-group">
-                            <input type="text" id="inputPath" readonly placeholder="Select video file..." class="file-input" data-tooltip="Select your input video file">
-                            <button class="browse-btn" onclick="selectInput()" data-tooltip="Browse for video">
-                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
-                                </svg>
-                                <span class="btn-text">Browse</span>
-                            </button>
-                        </div>
+                <!-- File Selection Card -->
+                <section class="card file-card">
+                    <div class="card-header">
+                        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
+                        </svg>
+                        <h3 class="card-title">Files</h3>
                     </div>
+                    <div class="card-content">
+                        <div class="form-group">
+                            <label class="form-label">
+                                <svg class="label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                </svg>
+                                Input Video
+                            </label>
+                            <div class="input-group">
+                                <input type="text" id="inputPath" readonly placeholder="Select video file..." class="file-input">
+                                <button class="browse-btn" onclick="selectInput()">
+                                    <span class="btn-text">Browse</span>
+                                </button>
+                            </div>
+                        </div>
 
-                    <div class="form-group">
-                        <label class="form-label">
-                            <svg class="label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
-                            </svg>
-                            Output Folder
-                        </label>
-                        <div class="input-group">
-                            <input type="text" id="outputPath" readonly placeholder="Select output folder..." class="file-input" data-tooltip="Select output folder">
-                            <button class="browse-btn" onclick="selectOutput()" data-tooltip="Browse for folder">
-                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <div class="form-group">
+                            <label class="form-label">
+                                <svg class="label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
                                 </svg>
-                                <span class="btn-text">Browse</span>
-                            </button>
+                                Output Folder
+                            </label>
+                            <div class="input-group">
+                                <input type="text" id="outputPath" readonly placeholder="Select output folder..." class="file-input">
+                                <button class="browse-btn" onclick="selectOutput()">
+                                    <span class="btn-text">Browse</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                <section class="presets-section">
-                    <h3 class="section-title">
-                        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <!-- Options Card -->
+                <section class="card options-card">
+                    <div class="card-header">
+                        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 11 12 14 22 4"/>
+                            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+                        </svg>
+                        <h3 class="card-title">Processing Options</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="options-grid">
+                            <label class="option-card">
+                                <input type="checkbox" id="autoCutSilence" checked class="option-input">
+                                <div class="option-badge">
+                                    <span class="badge-on">ON</span>
+                                    <span class="badge-off">OFF</span>
+                                </div>
+                                <div class="option-content">
+                                    <div class="option-header">
+                                        <svg class="option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                                        </svg>
+                                        <span class="option-title">Auto-Cut Silence</span>
+                                    </div>
+                                    <span class="option-desc">Automatically detect and remove silent parts</span>
+                                </div>
+                            </label>
+                            
+                            <label class="option-card">
+                                <input type="checkbox" id="normalizeAudio" checked class="option-input">
+                                <div class="option-badge">
+                                    <span class="badge-on">ON</span>
+                                    <span class="badge-off">OFF</span>
+                                </div>
+                                <div class="option-content">
+                                    <div class="option-header">
+                                        <svg class="option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M11 5L6 9H2v6h4l5 4V5zM15.54 8.46a5 5 0 010 7.07M19.07 4.93a10 10 0 010 14.14"/>
+                                        </svg>
+                                        <span class="option-title">Normalize Audio</span>
+                                    </div>
+                                    <span class="option-desc">YouTube standard (-16 LUFS)</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Background Music Card -->
+                <section class="card music-card">
+                    <div class="card-header">
+                        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 18V5l12-2v13M9 18c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3zm12-2c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3z"/>
+                        </svg>
+                        <h3 class="card-title">Background Music</h3>
+                    </div>
+                    <div class="card-content">
+                        <!-- Enable/Disable Toggle -->
+                        <label class="music-toggle-card">
+                            <input type="checkbox" id="backgroundMusicEnabled" class="option-input">
+                            <div class="option-badge">
+                                <span class="badge-on">ON</span>
+                                <span class="badge-off">OFF</span>
+                            </div>
+                            <div class="option-content">
+                                <div class="option-header">
+                                    <svg class="option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M9 18V5l12-2v13M9 18c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3zm12-2c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3z"/>
+                                    </svg>
+                                    <span class="option-title">Add Background Music</span>
+                                </div>
+                                <span class="option-desc">Mix subtle music behind your video</span>
+                            </div>
+                        </label>
+
+                        <!-- Music Settings (shown when enabled) -->
+                        <div id="musicSettings" class="music-settings" style="display: none;">
+                            <!-- Mode Selection -->
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <svg class="label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
+                                        <line x1="4" y1="22" x2="4" y2="15"/>
+                                    </svg>
+                                    Playback Mode
+                                </label>
+                                <div class="radio-group">
+                                    <label class="radio-label">
+                                        <input type="radio" name="musicMode" value="loop" checked class="radio-input" id="modeLoop">
+                                        <span class="radio-text">Loop One Music</span>
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="musicMode" value="sequence" class="radio-input" id="modeSequence">
+                                        <span class="radio-text">Play Sequence</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Music Selection -->
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <svg class="label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <polygon points="10 8 16 12 10 16 10 8"/>
+                                    </svg>
+                                    Select Music
+                                    <span class="music-count" id="musicCount">(0 selected)</span>
+                                </label>
+                                <div id="musicList" class="music-list">
+                                    <div class="music-list-empty">Loading music library...</div>
+                                </div>
+                                <button class="add-music-btn" onclick="addUserMusic()">
+                                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="12" y1="5" x2="12" y2="19"/>
+                                        <line x1="5" y1="12" x2="19" y2="12"/>
+                                    </svg>
+                                    <span class="btn-text">Add Your Music</span>
+                                </button>
+                            </div>
+
+                            <!-- Volume Control -->
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <svg class="label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                                        <path d="M15.54 8.46a5 5 0 010 7.07"/>
+                                    </svg>
+                                    Music Volume
+                                    <span class="volume-value" id="volumeValue">-24 dB</span>
+                                </label>
+                                <div class="volume-control">
+                                    <input type="range" id="musicVolume" min="-30" max="-15" value="-24" step="1" class="volume-slider">
+                                    <button class="reset-btn" onclick="resetVolume()">
+                                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="1 4 1 10 7 10"/>
+                                            <path d="M3.51 15a9 9 0 102.13-9.36L1 10"/>
+                                        </svg>
+                                        Reset
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Presets Card -->
+                <section class="card presets-card">
+                    <div class="card-header">
+                        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
                         </svg>
-                        Quick Presets
-                    </h3>
-                    <div class="button-group">
-                        <button class="preset-btn active" data-preset="recommended" data-tooltip="Balanced quality and speed">
-                            <svg class="preset-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <circle cx="12" cy="12" r="3"/>
-                            </svg>
-                            <span class="preset-name">Recommended</span>
-                            <span class="preset-desc">Balanced quality</span>
-                        </button>
-                        <button class="preset-btn" data-preset="fast" data-tooltip="Faster processing, more aggressive">
-                            <svg class="preset-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-                            </svg>
-                            <span class="preset-name">Extra Fast</span>
-                            <span class="preset-desc">Quick processing</span>
-                        </button>
+                        <h3 class="card-title">Quick Presets</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="presets-grid">
+                            <button class="preset-btn active" data-preset="recommended">
+                                <svg class="preset-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                                <span class="preset-name">Recommended</span>
+                                <span class="preset-desc">Balanced quality</span>
+                            </button>
+                            <button class="preset-btn" data-preset="fast">
+                                <svg class="preset-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                                </svg>
+                                <span class="preset-name">Extra Fast</span>
+                                <span class="preset-desc">Quick processing</span>
+                            </button>
+                        </div>
                     </div>
                 </section>
 
-                <section class="settings-section">
-                    <h3 class="section-title">
-                        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 15a3 3 0 100-6 3 3 0 000 6z"/>
-                            <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
+                <!-- Settings Card -->
+                <section class="card settings-card">
+                    <div class="card-header">
+                        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v6m0 6v6m5.2-13.2l-4.3 4.3m-5.8 5.8l-4.2 4.2m0-11l4.2 4.2m5.8 5.8l4.3 4.3"/>
                         </svg>
-                        Advanced Settings
-                    </h3>
-                    <div id="customSettings" class="settings-group visible">
+                        <h3 class="card-title">Advanced Settings</h3>
+                    </div>
+                    <div class="card-content">
                         <div class="settings-grid">
                             <div class="form-group">
-                                <label class="form-label" data-tooltip="Lower values = more sensitive">
+                                <label class="form-label">
                                     <svg class="label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M11 5L6 9H2v6h4l5 4V5z"/>
                                         <line x1="23" y1="9" x2="17" y2="15"/>
@@ -103,22 +266,22 @@
                                     </svg>
                                     Silence Threshold (dB)
                                 </label>
-                                <input type="number" id="silenceDb" value="-35" step="1" class="number-input">
+                                <input type="number" id="silenceDb" value="-28" step="1" class="number-input">
                             </div>
 
                             <div class="form-group">
-                                <label class="form-label" data-tooltip="Minimum silence duration to detect">
+                                <label class="form-label">
                                     <svg class="label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <circle cx="12" cy="12" r="10"/>
                                         <polyline points="12 6 12 12 16 14"/>
                                     </svg>
                                     Min. Silence Duration (sec)
                                 </label>
-                                <input type="number" id="minSilenceDuration" value="0.5" step="0.1" min="0" class="number-input">
+                                <input type="number" id="minSilenceDuration" value="0.2" step="0.1" min="0" class="number-input">
                             </div>
 
                             <div class="form-group">
-                                <label class="form-label" data-tooltip="Keep this much audio before/after silence">
+                                <label class="form-label">
                                     <svg class="label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
                                     </svg>
@@ -127,26 +290,12 @@
                                 <input type="number" id="paddingDuration" value="0.05" step="0.01" min="0" class="number-input">
                             </div>
                         </div>
-                        
-                        <div class="checkbox-group">
-                            <label class="checkbox-label" data-tooltip="Normalize audio to YouTube standards">
-                                <input type="checkbox" id="normalizeAudio" checked class="checkbox-input">
-                                <span class="checkbox-text">
-                                    <span class="checkbox-title">
-                                        <svg class="checkbox-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <path d="M12 2v20M17 7H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
-                                        </svg>
-                                        Normalize Audio (YouTube Standard)
-                                    </span>
-                                    <span class="checkbox-desc">Adjust volume to -16 LUFS (MrBeast/YouTube level)</span>
-                                </span>
-                            </label>
-                        </div>
                     </div>
                 </section>
 
+                <!-- Action Button -->
                 <section class="action-section">
-                    <button id="startBtn" onclick="startProcessing()" disabled class="start-btn" data-tooltip="Select input and output first">
+                    <button id="startBtn" onclick="startProcessing()" disabled class="start-btn">
                         <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <polygon points="5 3 19 12 5 21 5 3"/>
                         </svg>
@@ -154,11 +303,12 @@
                     </button>
                 </section>
 
+                <!-- Progress Section -->
                 <section class="progress-section">
                     <div id="progress" class="progress-container">
                         <div class="progress-info">
-                            <span class="progress-label">Processing status:</span>
-                            <span id="status" class="progress-status">Preparing...</span>
+                            <span class="progress-label">Status</span>
+                            <span id="status" class="progress-status">Ready</span>
                         </div>
                         <div class="progress-bar">
                             <div class="progress-bar-fill" id="progressBar"></div>
@@ -166,11 +316,21 @@
                     </div>
                 </section>
 
+                <!-- Logs Section -->
                 <section class="log-section" id="logSection" style="display: none;">
-                    <button class="log-toggle" onclick="toggleLogs()" id="logToggleBtn">
-                        <span class="log-toggle-text">Show Processing Logs</span>
-                        <span class="log-toggle-icon">▼</span>
-                    </button>
+                    <div class="log-header">
+                        <button class="log-toggle" onclick="toggleLogs()" id="logToggleBtn">
+                            <span class="log-toggle-text">Show Processing Logs</span>
+                            <span class="log-toggle-icon">▼</span>
+                        </button>
+                        <button class="copy-logs-btn" onclick="copyAllLogs()" title="Copy all messages">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                                <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                            </svg>
+                            <span class="btn-text">Copy All</span>
+                        </button>
+                    </div>
                     <div id="logContainer" class="log-container-wrapper" style="display: none;">
                         <div id="log" class="log-container"></div>
                     </div>
@@ -180,19 +340,24 @@
     </div>
 
     <script>
-        const { ipcRenderer } = require('electron');
+        const { ipcRenderer, shell } = require('electron');
+        
+        // Open GitHub in default browser
+        function openGitHub() {
+            shell.openExternal('https://github.com/parsherr/Klypify');
+        }
         
         // Preset değerleri
         const presets = {
             recommended: {
-                silenceDb: -35,
-                minSilenceDuration: 0.5,
-                paddingDuration: 0.05
+                silenceDb: -28,              // Hassas
+                minSilenceDuration: 0.2,     // Kısa sessizlikler
+                paddingDuration: 0.05        // Minimal padding (keskin kesim)
             },
             fast: {
-                silenceDb: -30,              
-                minSilenceDuration: 0.4,     
-                paddingDuration: 0.035       
+                silenceDb: -25,              // Çok hassas
+                minSilenceDuration: 0.15,     
+                paddingDuration: 0.03        // Çok az padding
             }
         };
 
@@ -219,8 +384,12 @@
             ipcRenderer.send('select-output');
         }
 
-        function startProcessing() {
+        async function startProcessing() {
             console.log('Start Processing clicked!');
+            
+            // IMPORTANT: Save music settings BEFORE starting processing
+            await saveMusicSettings();
+            console.log('Music settings saved!');
             
             const params = {
                 inputPath: document.getElementById('inputPath').value,
@@ -228,7 +397,9 @@
                 silenceDb: document.getElementById('silenceDb').value,
                 minSilenceDuration: document.getElementById('minSilenceDuration').value,
                 paddingDuration: document.getElementById('paddingDuration').value,
-                normalizeAudio: document.getElementById('normalizeAudio').checked
+                autoCutSilence: document.getElementById('autoCutSilence').checked,
+                normalizeAudio: document.getElementById('normalizeAudio').checked,
+                backgroundMusicEnabled: document.getElementById('backgroundMusicEnabled').checked
             };
 
             console.log('Processing params:', params);
@@ -331,6 +502,30 @@
             }
         }
 
+        // Copy all logs
+        function copyAllLogs() {
+            const logElement = document.getElementById('log');
+            const logText = logElement.innerText || logElement.textContent;
+            
+            if (!logText || logText.trim() === '') {
+                console.log('No logs to copy');
+                return;
+            }
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(logText).then(() => {
+                const copyBtn = document.querySelector('.copy-logs-btn .btn-text');
+                const originalText = copyBtn.textContent;
+                copyBtn.textContent = 'Copied!';
+                
+                setTimeout(() => {
+                    copyBtn.textContent = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy logs:', err);
+            });
+        }
+
         // Modal functions
         function showCompletionModal() {
             const modal = document.getElementById('completionModal');
@@ -348,6 +543,285 @@
             }
             closeModal();
         }
+
+        // Initialize option cards
+        function initOptionCards() {
+            document.querySelectorAll('.option-card').forEach(card => {
+                const checkbox = card.querySelector('.option-input');
+                
+                // Set initial state
+                if (checkbox.checked) {
+                    card.classList.add('checked');
+                }
+                
+                // Handle card click
+                card.addEventListener('click', (e) => {
+                    // Toggle checkbox
+                    checkbox.checked = !checkbox.checked;
+                    
+                    // Update visual state
+                    if (checkbox.checked) {
+                        card.classList.add('checked');
+                    } else {
+                        card.classList.remove('checked');
+                    }
+                    
+                    console.log(`${checkbox.id}: ${checkbox.checked ? 'ON' : 'OFF'}`);
+                });
+            });
+        }
+
+        // Initialize music toggle card
+        function initMusicToggle() {
+            const toggleCard = document.querySelector('.music-toggle-card');
+            const checkbox = document.getElementById('backgroundMusicEnabled');
+            const musicSettings = document.getElementById('musicSettings');
+            
+            // Set initial state
+            if (checkbox.checked) {
+                toggleCard.classList.add('checked');
+                musicSettings.style.display = 'flex';
+            }
+            
+            // Handle toggle
+            toggleCard.addEventListener('click', () => {
+                checkbox.checked = !checkbox.checked;
+                
+                if (checkbox.checked) {
+                    toggleCard.classList.add('checked');
+                    musicSettings.style.display = 'flex';
+                } else {
+                    toggleCard.classList.remove('checked');
+                    musicSettings.style.display = 'none';
+                }
+                
+                console.log(`Background Music: ${checkbox.checked ? 'ON' : 'OFF'}`);
+            });
+        }
+
+        // Volume slider control
+        function initVolumeSlider() {
+            const slider = document.getElementById('musicVolume');
+            const valueDisplay = document.getElementById('volumeValue');
+            
+            slider.addEventListener('input', (e) => {
+                const value = e.target.value;
+                valueDisplay.textContent = `${value} dB`;
+            });
+        }
+
+        // Reset volume to default
+        function resetVolume() {
+            const slider = document.getElementById('musicVolume');
+            const valueDisplay = document.getElementById('volumeValue');
+            slider.value = -24;
+            valueDisplay.textContent = '-24 dB';
+        }
+
+        // Music selection state
+        let selectedMusicOrder = []; // Array of music IDs in order
+
+        // Load music library
+        async function loadMusicLibrary() {
+            try {
+                const library = await ipcRenderer.invoke('get-music-library');
+                const musicList = document.getElementById('musicList');
+                
+                // Clear loading message
+                musicList.innerHTML = '';
+                
+                if (library.musics.length === 0) {
+                    musicList.innerHTML = '<div class="music-list-empty">No music available. Add your own!</div>';
+                    return;
+                }
+                
+                // Restore selected music order
+                selectedMusicOrder = library.settings.selectedMusicIds || [];
+                
+                // Populate music list
+                library.musics.forEach(music => {
+                    const item = createMusicItem(music);
+                    musicList.appendChild(item);
+                });
+                
+                updateMusicCount();
+                
+                // Restore settings
+                const checkbox = document.getElementById('backgroundMusicEnabled');
+                checkbox.checked = library.settings.enabled;
+                
+                const modeRadios = document.querySelectorAll('input[name="musicMode"]');
+                modeRadios.forEach(radio => {
+                    if (radio.value === library.settings.mode) {
+                        radio.checked = true;
+                    }
+                });
+                
+                const volumeSlider = document.getElementById('musicVolume');
+                const volumeValue = document.getElementById('volumeValue');
+                volumeSlider.value = library.settings.volume;
+                volumeValue.textContent = `${library.settings.volume} dB`;
+                
+                // Update UI state
+                if (checkbox.checked) {
+                    document.querySelector('.music-toggle-card').classList.add('checked');
+                    document.getElementById('musicSettings').style.display = 'flex';
+                }
+                
+            } catch (error) {
+                console.error('Failed to load music library:', error);
+                const musicList = document.getElementById('musicList');
+                musicList.innerHTML = '<div class="music-list-empty">Error loading music library</div>';
+            }
+        }
+
+        // Create music item element
+        function createMusicItem(music) {
+            const item = document.createElement('div');
+            item.className = 'music-item';
+            item.dataset.musicId = music.id;
+            
+            // Check if selected
+            const orderIndex = selectedMusicOrder.indexOf(music.id);
+            if (orderIndex !== -1) {
+                item.classList.add('selected');
+            }
+            
+            item.innerHTML = `
+                <svg class="music-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polygon points="10 8 16 12 10 16 10 8"/>
+                </svg>
+                <div class="music-item-info">
+                    <div class="music-item-name">${music.name}</div>
+                    <div class="music-item-duration">${formatDuration(music.duration)}</div>
+                </div>
+                <div class="music-item-order">${orderIndex !== -1 ? orderIndex + 1 : ''}</div>
+            `;
+            
+            // Click handler
+            item.addEventListener('click', () => {
+                toggleMusicSelection(music.id);
+            });
+            
+            return item;
+        }
+
+        // Toggle music selection
+        function toggleMusicSelection(musicId) {
+            const mode = document.querySelector('input[name="musicMode"]:checked').value;
+            const index = selectedMusicOrder.indexOf(musicId);
+            
+            if (index !== -1) {
+                // Remove from selection
+                selectedMusicOrder.splice(index, 1);
+            } else {
+                // Add to selection
+                if (mode === 'loop') {
+                    // Loop mode: only one music allowed
+                    selectedMusicOrder = [musicId];
+                } else {
+                    // Sequence mode: multiple allowed
+                    selectedMusicOrder.push(musicId);
+                }
+            }
+            
+            // Update UI
+            updateMusicItems();
+            updateMusicCount();
+        }
+
+        // Handle mode change
+        function onModeChange() {
+            const mode = document.querySelector('input[name="musicMode"]:checked').value;
+            
+            if (mode === 'loop' && selectedMusicOrder.length > 1) {
+                // Loop mode: keep only first selected music
+                selectedMusicOrder = [selectedMusicOrder[0]];
+                updateMusicItems();
+                updateMusicCount();
+            }
+        }
+
+        // Add mode change listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('input[name="musicMode"]').forEach(radio => {
+                radio.addEventListener('change', onModeChange);
+            });
+        });
+
+        // Update music items visual state
+        function updateMusicItems() {
+            const items = document.querySelectorAll('.music-item');
+            items.forEach(item => {
+                const musicId = item.dataset.musicId;
+                const orderIndex = selectedMusicOrder.indexOf(musicId);
+                const orderBadge = item.querySelector('.music-item-order');
+                
+                if (orderIndex !== -1) {
+                    item.classList.add('selected');
+                    orderBadge.textContent = orderIndex + 1;
+                } else {
+                    item.classList.remove('selected');
+                    orderBadge.textContent = '';
+                }
+            });
+        }
+
+        // Update music count display
+        function updateMusicCount() {
+            const count = selectedMusicOrder.length;
+            const countDisplay = document.getElementById('musicCount');
+            countDisplay.textContent = `(${count} selected)`;
+        }
+
+        // Format duration (seconds to mm:ss)
+        function formatDuration(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        // Add user music
+        async function addUserMusic() {
+            try {
+                const result = await ipcRenderer.invoke('add-user-music');
+                if (result.success) {
+                    console.log('Music added:', result.music.name);
+                    await loadMusicLibrary(); // Reload library
+                }
+            } catch (error) {
+                console.error('Failed to add music:', error);
+            }
+        }
+
+        // Save music settings
+        async function saveMusicSettings() {
+            const checkbox = document.getElementById('backgroundMusicEnabled');
+            const mode = document.querySelector('input[name="musicMode"]:checked').value;
+            const volume = parseInt(document.getElementById('musicVolume').value);
+            
+            const settings = {
+                enabled: checkbox.checked,
+                mode: mode,
+                selectedMusicIds: selectedMusicOrder, // Use ordered array
+                volume: volume
+            };
+            
+            console.log('💾 Saving music settings:', settings);
+            console.log('   Selected music order:', selectedMusicOrder);
+            
+            const result = await ipcRenderer.invoke('save-music-settings', settings);
+            console.log('   Save result:', result);
+            
+            return result;
+        }
+
+        // Initialize on load
+        initOptionCards();
+        initMusicToggle();
+        initVolumeSlider();
+        loadMusicLibrary();
 
         // Sayfa yüklendiğinde son output path'i yükle
         window.addEventListener('DOMContentLoaded', () => {
