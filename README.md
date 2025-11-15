@@ -1,4 +1,5 @@
 # Klyipf Desktop
+(old screenshot, from 1.3 version)
 <img width="1248" height="787" alt="image" src="https://github.com/user-attachments/assets/1a1a1ab7-d371-4cd0-8fd4-a2e375dd9803" />
 
 ## ✨ Features (v1.4)
