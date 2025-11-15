@@ -1,8 +1,8 @@
-# Klyppr Desktop
+# Klyipf Desktop
 
-> **🎉 Version 1.4 Released!** Major update with new features and improvements
+> **📋 Latest Updates:** Fixed audio sync issue and updated UI
 
-This is the desktop version of [Klyppr](https://github.com/muzafferkadir/klyppr), a powerful tool for automatic video silence removal.
+This is the desktop version of [Klyppr](https://github.com/muzafferkadir/klyppr), a tool for editing video silence.
 
 ## ✨ Features (v1.4)
 
@@ -28,15 +28,18 @@ This is the desktop version of [Klyppr](https://github.com/muzafferkadir/klyppr)
 - Copy all logs to clipboard
 - Responsive and intuitive controls
 - Supports multiple video formats (mp4, avi, mov, mkv)
+- Normalize audio LUFS for youtube standard
 
 ## 📦 Installation
 
-### For End Users
-1. Download the latest release (v1.4) for your operating system
-2. Install the application
-3. Launch Klyppr Desktop
+1. Download the latest release for your operating system
 
-*Note: Release builds coming soon for v1.4*
+[MacOS (arm64)](https://github.com/muzafferkadir/klyppr-desktop/releases/download/v0.1.0/Klyppr-1.1.0-arm64.dmg)
+
+[Windows (x64)](https://github.com/muzafferkadir/klyppr-desktop/releases/download/v0.1.0/Klyppr.Setup.1.1.0.exe)
+
+3. Install the application
+4. Launch Klyppr Desktop
 
 ## Development Setup
 
@@ -110,32 +113,9 @@ The built applications will be available in the `dist` directory.
 ## 🛠️ Tech Stack
 
 This is an Electron-based application using:
-- **Electron** - Desktop application framework
-- **FFmpeg** - Video/audio processing and analysis
-- **Node.js** - Backend runtime
-- **Modern CSS** - Glassmorphic UI design
-
-## 📝 Changelog (v1.4)
-
-### New Features
-- ✨ Background music system with loop and sequence modes
-- 🎵 Music library management (add your own MP3s)
-- 🔀 Smooth crossfade transitions between tracks
-- 📊 Ultra-detailed processing logs for all operations
-- 📋 Copy all logs to clipboard
-- 🎨 Modern glassmorphic dashboard redesign
-
-### Improvements
-- ⚡ Optimized silence detection algorithm
-- 🎯 Better default settings for auto-cut (-28dB threshold)
-- 🔧 Fixed double normalization issue
-- 📈 Parallel batch processing for segments
-- 🎚️ Improved audio mixing with proper level management
-
-### Bug Fixes
-- Fixed FFmpeg filter graph errors
-- Resolved padding calculation issues
-- Corrected segment concatenation logic
+- Electron
+- FFmpeg for video processing
+- Node.js
 
 ## Related Projects
 
